@@ -11,7 +11,7 @@ public class TelaInicial extends javax.swing.JFrame {
         initComponents();
         setTitle("PhotoEvent");
         setSize(800, 600);
-        setIconImage(new ImageIcon(getClass().getResource("/images/ilPE.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/images/ilPe48px.png")).getImage());
         setResizable(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
@@ -194,6 +194,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanelLogin.add(iniciar);
 
 
+
         //propriedades do card CADASTRO
         getContentPane().add(jPanelCadastro, "cardCadastro");
         jPanelCadastro.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -212,39 +213,34 @@ public class TelaInicial extends javax.swing.JFrame {
         cTitle.setVerticalTextPosition(SwingConstants.BOTTOM);
         cTitle.setBounds(90,70,210,260);
         jPanelCadastro.add(cTitle);
-        //
-        JTextArea fraseC = new JTextArea(5, 20);
-        fraseC.setFont(new java.awt.Font("Calibre", Font.PLAIN, 20));
-        fraseC.setText("Para criar sua conta, precisaremos\nde algumas informações, por isso,\npreencha os campos ao lado para\ncomeçar.");
-        fraseC.setBounds(30, 360, 320, 120);
-        jPanelCadastro.add(fraseC);
+
+        JTextArea fraseCa = new JTextArea(4, 20);
+        fraseCa.setFont(new java.awt.Font("Calibre", Font.PLAIN, 18));
+        fraseCa.setText("Para criar sua conta de funcionário,\nprecisaremos de algumas informações,\npor isso, preencha os campos ao lado\npara começar.");
+        fraseCa.setEditable(false);
+        fraseCa.setFocusable(false);
+        fraseCa.setBounds(30, 330, 335, 100);
+        jPanelCadastro.add(fraseCa);
+
+        JTextArea fraseCb = new JTextArea(5, 20);
+        fraseCb.setFont(new java.awt.Font("Calibre", Font.PLAIN, 18));
+        fraseCb.setText("Por questões de segurança, sua senha\ndeve ter:\n- No mínimo 6 digitos\n- Pelo menos 1 letra e 1 número\nExemplo de senha: 1abc23");
+        fraseCb.setEditable(false);
+        fraseCb.setFocusable(false);
+        fraseCb.setBounds(30, 446, 320, 100);
+        jPanelCadastro.add(fraseCb);
 
         // Configuração dos campos de texto e senha
         JTextField campoEmailC = new JTextField();
         campoEmailC.setBorder(bordaEmail);
         campoEmailC.setFont(new Font("Arial",Font.PLAIN,18));
-        campoEmailC.setBounds(410, 60, 300, 70);
+        campoEmailC.setBounds(390, 80, 350, 65); //145
         jPanelCadastro.add(campoEmailC);
-
-        JFormattedTextField campoFormatadoCelular = new JFormattedTextField();
-        TitledBorder bordaTelefone = BorderFactory.createTitledBorder("Celular");
-        bordaTelefone.setTitleColor(new Color(0x262626));
-        bordaTelefone.setTitleFont(new Font("Arial", Font.PLAIN, 20));
-        try {
-            campoFormatadoCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
-                    new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoFormatadoCelular.setBorder(bordaTelefone);
-        campoFormatadoCelular.setFont(new Font("Arial",Font.PLAIN,18));
-        campoFormatadoCelular.setBounds(410, 150, 300, 70);
-        jPanelCadastro.add(campoFormatadoCelular);
 
         JPasswordField campoSenhaC = new JPasswordField();
         campoSenhaC.setBorder(bordaSenha);
         campoSenhaC.setFont(new Font("Arial",Font.PLAIN,18));
-        campoSenhaC.setBounds(410, 240, 300, 70);
+        campoSenhaC.setBounds(390, 185, 350, 65);//250
         jPanelCadastro.add(campoSenhaC);
 
         JPasswordField campoConfirmarSenha = new JPasswordField();
@@ -253,7 +249,7 @@ public class TelaInicial extends javax.swing.JFrame {
         bordaConfirmaSenha.setTitleFont(new Font("Arial", Font.PLAIN, 20));
         campoConfirmarSenha.setBorder(bordaConfirmaSenha);
         campoConfirmarSenha.setFont(new Font("Arial",Font.PLAIN,18));
-        campoConfirmarSenha.setBounds(410, 330, 300, 70);
+        campoConfirmarSenha.setBounds(390, 290, 350, 65);
         jPanelCadastro.add(campoConfirmarSenha);
 
         JButton concluir=new JButton("Concluir cadastro");
@@ -268,18 +264,14 @@ public class TelaInicial extends javax.swing.JFrame {
                 javax.swing.BorderFactory.createEmptyBorder(7, 7, 7, 7)));
         concluir.setPreferredSize(new Dimension(200, 60));
         concluir.setBounds(425,480, 265, 60);
-        concluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            }
-        });
         concluir.addActionListener(
                 new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         String entrada2=campoEmailC.getText();
-                        String entrada3=campoFormatadoCelular.getText();
-                        String entrada4=campoSenhaC.getText();
-                        String entrada5=campoConfirmarSenha.getText();
-                        Confirmacao confirmacao1=new Confirmacao(entrada2,entrada3,entrada4,entrada4);
+                        String entrada3=campoSenhaC.getText();
+                        String entrada4=campoConfirmarSenha.getText();
+                        Confirmacao confirmacao=new Confirmacao(entrada2,entrada3,entrada4,jPanelCadastro);
+                        confirmacao.conferir();
                     }
                 }
         );
