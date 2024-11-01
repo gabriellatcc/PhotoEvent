@@ -3,6 +3,8 @@ package view;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.util.Arrays;
+
 import main.Confirmacao;
 import main.Entrada;
 
@@ -156,6 +158,7 @@ public class TelaInicial extends javax.swing.JFrame {
         voltarL.setHorizontalAlignment(SwingConstants.LEFT);
         voltarL.setVerticalAlignment(SwingConstants.CENTER);
         voltarL.setBounds(0, 0, 180, 50);
+        voltarL.setBorderPainted(false);
         voltarL.setOpaque(false);
         voltarL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,13 +168,11 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         jPanelLogin.add(voltarL);
 
-        ImageIcon ss=new ImageIcon(getClass().getResource("/images/ilSmile48.png"));
         JButton iniciar=new JButton("Iniciar");
-        iniciar.setIcon(ss);
         iniciar.setBackground(new Color(0xD9D3C7));
         iniciar.setFont(new Font("SansSerif", Font.BOLD, 20)); // NOI18N
-        iniciar.setForeground(new Color(255, 255, 255));
-        iniciar.setHorizontalTextPosition(SwingConstants.RIGHT);
+        iniciar.setForeground(new Color(0x262626));
+        iniciar.setHorizontalTextPosition(SwingConstants.CENTER);
         iniciar.setVerticalTextPosition(SwingConstants.CENTER);
         iniciar.setBorder(javax.swing.BorderFactory.createCompoundBorder(
                 new javax.swing.border.LineBorder(new Color(0xD9D3C7), 4, true),
@@ -219,12 +220,12 @@ public class TelaInicial extends javax.swing.JFrame {
         fraseCa.setText("Para criar sua conta de funcionário,\nprecisaremos de algumas informações,\npor isso, preencha os campos ao lado\npara começar.");
         fraseCa.setEditable(false);
         fraseCa.setFocusable(false);
-        fraseCa.setBounds(30, 330, 335, 100);
+        fraseCa.setBounds(30, 335, 335, 100);
         jPanelCadastro.add(fraseCa);
 
         JTextArea fraseCb = new JTextArea(5, 20);
-        fraseCb.setFont(new java.awt.Font("Calibre", Font.PLAIN, 18));
-        fraseCb.setText("Por questões de segurança, sua senha\ndeve ter:\n- No mínimo 6 digitos\n- Pelo menos 1 letra e 1 número\nExemplo de senha: 1abc23");
+        fraseCb.setFont(new java.awt.Font("Calibre", Font.PLAIN, 14));
+        fraseCb.setText("Por questões de segurança, sua senha deve ter:\n- No mínimo 6 digitos\n- Pelo menos 1 letra e 1 número\nExemplo de senha: 1abc23");
         fraseCb.setEditable(false);
         fraseCb.setFocusable(false);
         fraseCb.setBounds(30, 446, 320, 100);
@@ -253,11 +254,10 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanelCadastro.add(campoConfirmarSenha);
 
         JButton concluir=new JButton("Concluir cadastro");
-        concluir.setIcon(ss);
         concluir.setBackground(new Color(0xD9D3C7));
         concluir.setFont(new Font("SansSerif", Font.BOLD, 20)); // NOI18N
-        concluir.setForeground(new Color(255, 255, 255));
-        concluir.setHorizontalTextPosition(SwingConstants.RIGHT);
+        concluir.setForeground(new Color(0x262626));
+        concluir.setHorizontalTextPosition(SwingConstants.CENTER);
         concluir.setVerticalTextPosition(SwingConstants.CENTER);
         concluir.setBorder(javax.swing.BorderFactory.createCompoundBorder(
                 new javax.swing.border.LineBorder(new Color(0xD9D3C7), 4, true),
@@ -267,11 +267,26 @@ public class TelaInicial extends javax.swing.JFrame {
         concluir.addActionListener(
                 new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        String entrada2=campoEmailC.getText();
-                        String entrada3=campoSenhaC.getText();
-                        String entrada4=campoConfirmarSenha.getText();
-                        Confirmacao confirmacao=new Confirmacao(entrada2,entrada3,entrada4,jPanelCadastro);
+                        limparMensagensErro();
+
+                        String entrada2 = campoEmailC.getText();
+                        String entrada3 = Arrays.toString(campoSenhaC.getPassword());
+                        String entrada4 = Arrays.toString(campoConfirmarSenha.getPassword());
+
+                        Confirmacao confirmacao = new Confirmacao(entrada2, entrada3, entrada4, jPanelCadastro, TelaInicial.this);
                         confirmacao.conferir();
+                    }
+                    private void limparMensagensErro()
+                    {
+                        for (Component component : jPanelCadastro.getComponents())
+                        {
+                            if (component instanceof JTextArea)
+                            {
+                                jPanelCadastro.remove(component);
+                            }
+                        }
+                        jPanelCadastro.revalidate();
+                        jPanelCadastro.repaint();
                     }
                 }
         );
@@ -286,11 +301,15 @@ public class TelaInicial extends javax.swing.JFrame {
         voltarC.setHorizontalAlignment(SwingConstants.LEFT);
         voltarC.setVerticalAlignment(SwingConstants.CENTER);
         voltarC.setBounds(0, 0, 180, 50);
+        voltarC.setBorderPainted(false);
         voltarC.setOpaque(false);
         voltarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CardLayout cI = (CardLayout) getContentPane().getLayout();
                 cI.show(getContentPane(), "cardInicial");
+                campoEmailC.setText("");
+                campoSenhaC.setText("");
+                campoConfirmarSenha.setText("");
             }
         });
         jPanelCadastro.add(voltarC);
@@ -298,15 +317,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
         pack();
     }
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {
-
-    }
-
-    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {
-
-    }
-
     private javax.swing.JPanel jPanelCadastro;
     private javax.swing.JPanel jPanelInicial;
     private javax.swing.JPanel jPanelLogin;

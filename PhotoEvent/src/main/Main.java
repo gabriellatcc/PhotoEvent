@@ -1,6 +1,8 @@
 package main;
 import javax.swing.JFrame;
 import view.TelaInicial;
+import view.TelaMenu;
+
 public class Main
     //cores
     // #736D4F VERDE
@@ -11,9 +13,9 @@ public class Main
 {
     public static void main(String[] args)
     {
-        TelaInicial frame = new TelaInicial();
+        TelaMenu frame = new TelaMenu();
         frame.setLocationRelativeTo(null);
-        frame.setExtendedState(JFrame.ICONIFIED);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
 }
