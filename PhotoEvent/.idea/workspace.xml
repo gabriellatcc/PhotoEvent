@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f574a110-6b7e-4bd1-8ab2-10a4e6f1cee9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/photoevents/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Confirmacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Entrada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/StatusLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/StatusMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/BancoDeDados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/ClienteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/EventoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCadastro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCalendario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaEntrada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaEvento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaFolha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaInicial.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaInicial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaPerfil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilBGCad800px.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilBGIvf800px.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilBGMvf1535px.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilBLog800px.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilCadastro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilEngine48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilEntrada.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilExit48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilFeliz48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilPe48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilVoltar.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2oZMUE10C6Oj56cCLtPmd7ICbFJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/gabri/IdeaProjects/pe2/src/main/resources"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gabri\IdeaProjects\pe2\src\main\resources" />
+      <recent name="C:\Users\gabri\IdeaProjects\pe2\src\main\java" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f574a110-6b7e-4bd1-8ab2-10a4e6f1cee9" name="Changes" comment="" />
+      <created>1731072657881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731072657881</updated>
+    </task>
+    <servers />
+  </component>
+</project>
