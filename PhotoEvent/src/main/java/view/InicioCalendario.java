@@ -1,5 +1,4 @@
 package view;
-
 import models.EventosCRUD;
 
 import javax.swing.*;
@@ -7,30 +6,19 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class TelaCalendario extends JPanel {
-    private JFrame parentFrame;
+public class InicioCalendario extends JPanel {
+    private JPanel jPanelCalendario;
     private EventosCRUD eventosCRUD;
     private LocalDate dataAtual;
+    private TelaMenuAssistente telaMenuAssistente;
 
-    public TelaCalendario(JFrame parentFrame) {
-        this.parentFrame = parentFrame;
-        this.eventosCRUD = new EventosCRUD();
-        this.dataAtual = LocalDate.now();
-        initComponents();
+    public InicioCalendario(JPanel jPanelCalendario, EventosCRUD eventosCRUD, LocalDate dataAtual) {
+        this.jPanelCalendario = jPanelCalendario;
+        this.eventosCRUD = eventosCRUD;
+        this.dataAtual = dataAtual;
     }
-
-    private void initComponents() {
-        setLayout(null);
-        setBackground(new Color(0xf2f2f2));
-
-        InicioCalendario inicioCalendarioPanel = new InicioCalendario(this, eventosCRUD, dataAtual);
-        inicioCalendarioPanel.setBounds(0, 0, 1000, 600);
-
-        add(inicioCalendarioPanel);
-        iniciarCalendario();
-    }
-
-    private void iniciarCalendario() {
+    public void iniciar()
+    {
         setPreferredSize(new Dimension(900, 500));
         setBorder(BorderFactory.createEmptyBorder(15, 10, 15, 10));
         setLayout(new GridBagLayout());
@@ -41,7 +29,6 @@ public class TelaCalendario extends JPanel {
         JLabel hojeLabel = new JLabel(dataString);
         hojeLabel.setFont(new Font("Helvetica", Font.BOLD, 40));
         hojeLabel.setForeground(Color.decode("#393536"));
-
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.BOTH;
         constraints.anchor = GridBagConstraints.EAST;
@@ -60,23 +47,22 @@ public class TelaCalendario extends JPanel {
         constraints.insets = new Insets(0, 0, 0, 0);
 
         add(new Calendario(
-                parentFrame,
+                telaMenuAssistente,
                 data.getYear(),
                 data.getMonthValue(),
                 dataAtual,
-                this,
-                this,
+                telaMenuAssistente,
+                jPanelCalendario,
                 eventosCRUD
         ), constraints);
-
         constraints.gridx = 1;
         constraints.gridy = 1;
 
         add(new Eventos(
                 dataAtual,
                 eventosCRUD,
-                parentFrame,
-                this
+                telaMenuAssistente,
+                jPanelCalendario
         ), constraints);
     }
 }

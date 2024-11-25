@@ -5,10 +5,10 @@ import controllers.BordaPadraoController;
 import javax.swing.*;
 import java.awt.*;
 
-public class TelaEvento extends JPanel
+public class TelaPerfilAdmin extends JPanel
 {
     private TelaMenuAssistente telaMenuAssistente;
-    public TelaEvento(TelaMenuAssistente telaMenuAssistente)
+    public TelaPerfilAdmin(TelaMenuAssistente telaMenuAssistente)
     {
         this.telaMenuAssistente = telaMenuAssistente;
         initComponents();
@@ -18,9 +18,9 @@ public class TelaEvento extends JPanel
         setLayout(null);
         setBackground(new Color(0xf2f2f2));
 
-        JPanel jPanelEvento = new JPanel();
-        jPanelEvento.setLayout(null);
-        jPanelEvento.setBackground(new Color(255, 255, 255));
+        JPanel jPanelPerfil = new JPanel();
+        jPanelPerfil.setLayout(null);
+        jPanelPerfil.setBackground(new Color(255, 255, 255));
 
         BordaPadraoController BordaPadraoController =new BordaPadraoController(10);
 
@@ -44,7 +44,11 @@ public class TelaEvento extends JPanel
         });
         add(voltarC);
 
+        ImageIcon fundo = new ImageIcon(getClass().getResource("/images/telaPerfilAdmin.jpg"));
+        JLabel background = new JLabel(fundo);
+        background.setBounds(0, 0, fundo.getIconWidth(), fundo.getIconHeight());
+        add(background);
 
-        add(jPanelEvento);
+        add(jPanelPerfil);
     }
 }
