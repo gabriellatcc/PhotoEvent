@@ -1,74 +1,97 @@
 package models;
 
 import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
 import database.BancoDeDados;
+import controllers.EventoController;
 import org.bson.Document;
 
-public class EventoCRUD {
+import java.util.ArrayList;
+import java.util.List;
 
-    private MongoDatabase database;
+public class EventoCRUD {
+    private MongoCollection<Document> eventosCollection;
 
     public EventoCRUD() {
-        this.database = new BancoDeDados().conectar();
-    }
-    public boolean inserirEvento(int id, String titulo, String nomeCliente, String sobrenomeCliente, String tipo, String endereco, double duracao, double tempoEstimadoEdicao) {
-        try {
-            MongoCollection<Document> collection = database.getCollection("Evento");
-            Document novoEvento = new Document("id", id)
-                    .append("titulo", titulo)
-                    .append("nome_cliente", nomeCliente)
-                    .append("sobrenome_cliente", sobrenomeCliente)
-                    .append("tipo", tipo)
-                    .append("endereco", endereco)
-                    .append("duracao", duracao)
-                    .append("tempo_estimado_edicao", tempoEstimadoEdicao);
-
-            collection.insertOne(novoEvento);
-            return true;
-        } catch (Exception e) {
-            System.out.println("Erro ao inserir evento: " + e.getMessage());
-        }
-        return false;
-    }
-    public Document buscarEventoPorTitulo(String titulo) {
-        try {
-            MongoCollection<Document> collection = database.getCollection("Evento");
-            Document query = new Document("titulo", titulo);
-            return collection.find(query).first();
-        } catch (Exception e) {
-            System.out.println("Erro ao buscar evento: " + e.getMessage());
-        }
-        return null;
-    }
-    public boolean atualizarEvento(int id, String titulo, String nomeCliente, String sobrenomeCliente, String tipo,
-                                   String endereco, double duracao, double tempoEstimadoEdicao) {
-        try {
-            MongoCollection<Document> collection = database.getCollection("Evento");
-            Document query = new Document("id", id);
-            Document update = new Document("$set", new Document("titulo", titulo)
-                    .append("nome_cliente", nomeCliente)
-                    .append("sobrenome_cliente", sobrenomeCliente)
-                    .append("tipo", tipo)
-                    .append("endereco", endereco)
-                    .append("duracao", duracao)
-                    .append("tempo_estimado_edicao", tempoEstimadoEdicao));
-            collection.updateOne(query, update);
-            return true;
-        } catch (Exception e) {
-            System.out.println("Erro ao atualizar evento: " + e.getMessage());
-        }
-        return false;
+        BancoDeDados bancoDeDados = new BancoDeDados();
+        MongoDatabase database = bancoDeDados.conectar();
+        this.eventosCollection = database.getCollection("eventos");
     }
 
-    public boolean deletarEvento(int id) {
-        try {
-            MongoCollection<Document> collection = database.getCollection("Evento");
-            Document query = new Document("id", id);
-            collection.deleteOne(query);
-            return true;
-        } catch (Exception e) {
-            System.out.println("Erro ao deletar evento: " + e.getMessage());
+    // CREATE
+    public void criarEvento(EventoController evento) {
+        if ("foto".equalsIgnoreCase(evento.getServico())) {
+            // Calcular o valor baseado na duração para o fotógrafo
+            evento.setValorPagamento(calcularPagamentoFoto(evento.getDuracao()));
         }
-        return false;
+
+        Document eventoDoc = new Document("titulo", evento.getTitulo())
+                .append("nomeCliente", evento.getNomeCliente())
+                .append("sobrenomeCliente", evento.getSobrenomeCliente())
+                .append("tipo", evento.getTipo())
+                .append("endereco", evento.getEndereco())
+                .append("duracao", evento.getDuracao())
+                .append("horarioInicio", evento.getHorarioInicio())
+                .append("tempoEstimadoEdicao", evento.getTempoEstimadoEdicao())
+                .append("dataEvento", evento.getDataEvento())
+                .append("servico", evento.getServico())
+                .append("metodoPagamento", evento.getMetodoPagamento())
+                .append("parcelamento", evento.getParcelamento())
+                .append("valorPagamento", evento.getValorPagamento());
+        eventosCollection.insertOne(eventoDoc);
+    }
+
+    // READ
+    public List<EventoController> buscarEventosPorData(String data) {
+        List<EventoController> eventos = new ArrayList<>();
+        FindIterable<Document> documentos = eventosCollection.find(Filters.eq("dataEvento", data));
+        for (Document doc : documentos) {
+            EventoController evento = new EventoController();
+            evento.setDuracao(doc.getDouble("duracao") != null ? doc.getDouble("duracao") : 0.0);
+            evento.setValorPagamento(doc.getDouble("valorPagamento") != null ? doc.getDouble("valorPagamento") : 0.0);
+            evento.setTitulo(doc.getString("titulo") != null ? doc.getString("titulo") : "Sem título");
+            evento.setNomeCliente(doc.getString("nomeCliente"));
+            evento.setSobrenomeCliente(doc.getString("sobrenomeCliente"));
+            evento.setTipo(doc.getString("tipo"));
+            evento.setEndereco(doc.getString("endereco"));
+            evento.setHorarioInicio(doc.getString("horarioInicio"));
+            evento.setTempoEstimadoEdicao(doc.getString("tempoEstimadoEdicao"));
+            evento.setDataEvento(doc.getString("dataEvento"));
+            evento.setServico(doc.getString("servico"));
+            evento.setMetodoPagamento(doc.getString("metodoPagamento"));
+            evento.setParcelamento(doc.getString("parcelamento"));
+            eventos.add(evento);
+        }
+        return eventos;
+    }
+
+    // UPDATE
+    public void atualizarEvento(String titulo, EventoController eventoAtualizado) {
+        Document filtro = new Document("titulo", titulo);
+        Document novoEvento = new Document("titulo", eventoAtualizado.getTitulo())
+                .append("nomeCliente", eventoAtualizado.getNomeCliente())
+                .append("sobrenomeCliente", eventoAtualizado.getSobrenomeCliente())
+                .append("tipo", eventoAtualizado.getTipo())
+                .append("endereco", eventoAtualizado.getEndereco())
+                .append("duracao", eventoAtualizado.getDuracao())
+                .append("horarioInicio", eventoAtualizado.getHorarioInicio())
+                .append("tempoEstimadoEdicao", eventoAtualizado.getTempoEstimadoEdicao())
+                .append("dataEvento", eventoAtualizado.getDataEvento())
+                .append("servico", eventoAtualizado.getServico())
+                .append("metodoPagamento", eventoAtualizado.getMetodoPagamento())
+                .append("parcelamento", eventoAtualizado.getParcelamento())
+                .append("valorPagamento", eventoAtualizado.getValorPagamento());
+
+        eventosCollection.updateOne(filtro, new Document("$set", novoEvento));
+    }
+
+    public void excluirEvento(String titulo) {
+        Document filtro = new Document("titulo", titulo);
+        eventosCollection.deleteOne(filtro);
+    }
+
+    private double calcularPagamentoFoto(double duracao) {
+        double precoPorHora = 100.0;
+        return precoPorHora * duracao;
     }
 }

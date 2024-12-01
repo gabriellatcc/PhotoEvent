@@ -37,22 +37,6 @@ public class TelasController {
                 new TelaMenuAdmin().setVisible(true);
                 break;
 
-            case "editor de fotos":
-                new TelaMenuEditorFotos().setVisible(true);
-                break;
-
-            case "editor de videos":
-                new TelaMenuEditorVideos().setVisible(true);
-                break;
-
-            case "fotógrafo":
-                new TelaMenuFotografo().setVisible(true);
-                break;
-
-            case "videomaker":
-                new TelaMenuVideomaker().setVisible(true);
-                break;
-
             case "assistente geral":
                 new TelaMenuAssistente().setVisible(true);
                 break;

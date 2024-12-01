@@ -43,7 +43,7 @@ public class TelaSolicitacoes extends JPanel {
         voltarC.setFont(new Font("Calibre", Font.BOLD, 35));
         voltarC.setHorizontalAlignment(SwingConstants.CENTER);
         voltarC.setBounds(10, 10, 70, 55);
-        voltarC.addActionListener(evt -> telaMenuAdmin.mostrarCard("cardMenuAdmin"));
+        voltarC.addActionListener(evt -> telaMenuAdmin.mostrarCard("cardMenu"));
         add(voltarC);
 
         JLabel title=new JLabel("Solicitações");
@@ -138,19 +138,24 @@ public class TelaSolicitacoes extends JPanel {
     }
 
     private void aprovarSolicitacao(String[] solicitacao) {
-        String nome = solicitacao[0];
-        String sobrenome = solicitacao[1];
-        String email = solicitacao[2];
-        String cargo = solicitacao[3];
-        String senha = solicitacao[4];
+        try {
+            String nome = solicitacao[0];
+            String sobrenome = solicitacao[1];
+            String email = solicitacao[2];
+            String cargo = solicitacao[3];
+            String senha = solicitacao[4];
 
-        CadastroSucesso cadastro = new CadastroSucesso(nome, sobrenome, email, senha, cargo);
-        if (cadastro.registrarUsuario()) {
-            JOptionPane.showMessageDialog(this, "Solicitação aprovada e usuário cadastrado: " + email, "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            atualizarStatusSolicitacao(email, "ativo");
-            carregarSolicitacoes(obterSolicitacoesPendentes());
-        } else {
-            JOptionPane.showMessageDialog(this, "Erro ao aprovar solicitação: " + email, "Erro", JOptionPane.ERROR_MESSAGE);
+            CadastroSucesso cadastro = new CadastroSucesso(nome, sobrenome, email, senha, cargo);
+            if (!cadastro.registrarUsuario()) {
+                JOptionPane.showMessageDialog(this, "Solicitação aprovada e usuário cadastrado: " + email, "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                atualizarStatusSolicitacao(email, "ativo");
+                carregarSolicitacoes(obterSolicitacoesPendentes());
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao aprovar solicitação: " + email, "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao aprovar solicitação: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }
 

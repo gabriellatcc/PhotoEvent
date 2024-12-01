@@ -53,6 +53,7 @@ public class UsuarioCRUD {
         return null;
     }
 
+
     // Read
     public boolean emailJaCadastrado(String email) {
         try {
@@ -74,7 +75,18 @@ public class UsuarioCRUD {
             Document usuario = collection.find(query).first();
 
             if (usuario != null) {
-                return usuario.getString("senha");
+                Object senhaObj = usuario.get("senha");
+                if (senhaObj instanceof List<?>) {
+                    List<?> listaSenha = (List<?>) senhaObj;
+                    StringBuilder senha = new StringBuilder();
+                    for (Object item : listaSenha) {
+                        if (item instanceof Character) {
+                            senha.append((Character) item);
+                        }
+                    }
+                    return senha.toString();
+                }
+                return senhaObj != null ? senhaObj.toString() : null;
             }
         } catch (Exception e) {
             System.out.println("Erro ao buscar senha: " + e.getMessage());
@@ -132,6 +144,8 @@ public class UsuarioCRUD {
     public void atualizarStatusSolicitacao(String email, String novoStatus) {
         try {
             MongoCollection<Document> collection = database.getCollection("Usuarios");
+
+            // Verifica se o usuário já está com status "ativo"
             long countAtivo = collection.countDocuments(Filters.and(
                     Filters.eq("email", email),
                     Filters.eq("status", "ativo")
@@ -142,12 +156,26 @@ public class UsuarioCRUD {
                 return;
             }
 
+            // Verifica se o usuário está com status "pendente"
+            Document usuario = collection.find(Filters.and(
+                    Filters.eq("email", email),
+                    Filters.eq("status", "pendente")
+            )).first();
+
+            if (usuario == null) {
+                System.out.println("Usuário não encontrado ou não está com status pendente.");
+                return;
+            } else {
+                System.out.println("Usuário encontrado, procedendo com a atualização.");
+            }
+
             Bson filtro = Filters.and(
                     Filters.eq("email", email),
                     Filters.eq("status", "pendente")
             );
 
             Bson atualizacao = Updates.set("status", novoStatus);
+
             UpdateResult resultado = collection.updateOne(filtro, atualizacao);
 
             if (resultado.getModifiedCount() > 0) {
@@ -157,6 +185,46 @@ public class UsuarioCRUD {
             }
         } catch (Exception e) {
             System.out.println("Erro ao atualizar status da solicitação: " + e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    // read
+    public List<Document> obterUsuariosAtivos() {
+        List<Document> usuariosAtivos = new ArrayList<>();
+        try {
+            MongoCollection<Document> collection = database.getCollection("Usuarios");
+            FindIterable<Document> documentos = collection.find(Filters.eq("status", "ativo"))
+                    .projection(new Document("nome", 1)
+                            .append("sobrenome", 1)
+                            .append("email", 1)
+                            .append("cargo", 1)
+                            .append("_id", 0)); // Exclui o _id
+            for (Document doc : documentos) {
+                usuariosAtivos.add(doc);
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar usuários ativos: " + e.getMessage());
+        }
+        return usuariosAtivos;
+    }
+
+    // delete
+    public boolean excluirUsuario(String email) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Usuarios");
+            Bson filtro = Filters.eq("email", email);
+            long resultado = collection.deleteOne(filtro).getDeletedCount();
+
+            if (resultado > 0) {
+                System.out.println("Usuário com o email " + email + " foi excluído com sucesso.");
+                return true;
+            } else {
+                System.out.println("Nenhum usuário encontrado com o email: " + email);
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir usuário: " + e.getMessage());
+        }
+        return false;
     }
 }

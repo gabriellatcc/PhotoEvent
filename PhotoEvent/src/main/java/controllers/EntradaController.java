@@ -43,16 +43,21 @@ public class EntradaController {
             return;
         }
 
-        JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
-        TelasController telasController = new TelasController(email);
-        telasController.abrirMenu();
+        else {
+            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+            TelasController telasController = new TelasController(email);
+            telasController.abrirMenu();
 
-        Window window = SwingUtilities.getWindowAncestor(ti);
-        if (window instanceof JFrame) {
-            ((JFrame) window).dispose();
+            Window window = SwingUtilities.getWindowAncestor(ti);
+            if (window instanceof JFrame) {
+                ((JFrame) window).dispose();
+            }
         }
+
         limparMensagensErro();
+
     }
+
     private void adicionarAviso(String mensagem, int yPosition) {
         JLabel aviso = new JLabel();
         aviso.setFont(new Font("Calibre", Font.PLAIN, 15));

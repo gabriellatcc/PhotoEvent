@@ -18,59 +18,35 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/BordaPadraoController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/CadastroController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/CadastroSucesso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/CpfController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/EntradaController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/EventoController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/GerenciadorSessaoController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/TelasController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/database/BancoDeDados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/ArquivosCRUD.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/models/ClienteCRUD.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/models/EventoCRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/EventosCRUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/PagamentoCRUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/PrecificacaoCRUD.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/models/UsuarioCRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/AgendaDiaria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Calendario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/DiaLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/EditorDeEvento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Eventos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/EventosDoDia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/InicioCalendario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaArquivos.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCadastro.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCalendario.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaCliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaEvento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaFolhaAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaFolhaFuncionarios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaFolhaPagamento.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaInicial.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuAdmin.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuAssistente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuEditorFotos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuEditorVideos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuFotografo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuVideomaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaPerfilAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaPerfilFuncionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaMenuBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaPrecificacao.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaSolicitacoes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaUploadFotofrafo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaUploadVideomaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/arrow-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/arrow-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/check-box-not-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/check-box-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilExit48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TelaUsuarios.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilPe.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/ilVoltar.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaCadastro.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaInicio.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuAdmin.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuAssistente.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuEditorFoto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuEditorVideo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuFotografo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaMenuVideomaker.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaPerfilAdmin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/telaPerfilFuncionario.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/simplelogger.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +88,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindow.Debug.ShowToolbar": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -119,7 +96,7 @@
     "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor"
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
   <component name="RecentsManager">

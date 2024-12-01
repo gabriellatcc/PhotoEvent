@@ -45,12 +45,6 @@ public class TelaInicial extends JFrame {
         lTitle.setBounds(862,208,286,76);
         jPanelBase.add(lTitle);
 
-        JLabel subTitle = new JLabel("para Prisma Fotografia");
-        subTitle.setFont(new Font("Open Sans", Font.BOLD, 23));
-        subTitle.setForeground(new Color(0xf0ece6));
-        subTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        subTitle.setBounds(385, 230, 370, 76);
-        jPanelBase.add(subTitle);
 
         JLabel frase = new JLabel("<html><div style='text-align: center;'>Entre com sua conta de funcionário para registrar eventos, ver a listagem de clientes e manter a organização.</div></html>");
         frase.setFont(new Font("Montserrat", Font.PLAIN, 16));

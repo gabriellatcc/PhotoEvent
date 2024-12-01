@@ -4,6 +4,9 @@ import com.mongodb.client.*;
 import database.BancoDeDados;
 import org.bson.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClienteCRUD {
 
     private MongoDatabase database;
@@ -11,7 +14,7 @@ public class ClienteCRUD {
     public ClienteCRUD() {
         this.database = new BancoDeDados().conectar();
     }
-
+//
     public boolean inserirCliente(int id, String nome, String sobrenome, String cpf, String cnpj, String telefone, String servicosContratados) {
         try {
             MongoCollection<Document> collection = database.getCollection("Cliente");
@@ -29,6 +32,7 @@ public class ClienteCRUD {
         }
         return false;
     }
+    //read
     public Document buscarClientePorCpf(String cpf) {
         try {
             MongoCollection<Document> collection = database.getCollection("Cliente");
@@ -39,7 +43,21 @@ public class ClienteCRUD {
         }
         return null;
     }
-
+    //read
+    public List<Document> buscarTodosClientes() {
+        List<Document> clientes = new ArrayList<>();
+        try {
+            MongoCollection<Document> collection = database.getCollection("Cliente");
+            FindIterable<Document> resultado = collection.find();
+            for (Document doc : resultado) {
+                clientes.add(doc);
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar todos os clientes: " + e.getMessage());
+        }
+        return clientes;
+    }
+//update
     public boolean atualizarCliente(int id, String nome, String sobrenome, String cpf, String cnpj, String telefone, String servicosContratados) {
         try {
             MongoCollection<Document> collection = database.getCollection("Cliente");
@@ -57,7 +75,7 @@ public class ClienteCRUD {
         }
         return false;
     }
-
+//delete
     public boolean deletarCliente(String cpf) {
         try {
             MongoCollection<Document> collection = database.getCollection("Cliente");
