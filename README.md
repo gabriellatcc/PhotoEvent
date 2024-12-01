@@ -62,12 +62,6 @@ Adicione aqui capturas de tela da aplicação em funcionamento. Por exemplo:
 ### Tela de menu do Assistente
 ![Tela do Assistente](screenshots/tela_assistente.png)
 
-### Tela de visualização de clientes
-![Tela de Clientes](screenshots/tela_clientes.png)
-
-### Tela de visualização de arquivos
-![Tela de Arquivos](screenshots/tela_arquivos.png)
-
 ### Tela de visualização do Calendário
 ![Tela de Calendário](screenshots/tela_calendario.png)
 
