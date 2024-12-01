@@ -23,12 +23,16 @@ Este projeto foi desenvolvido em Java, utilizando bibliotecas do Java Swing para
 
 ## Tecnologias Utilizadas
 
-- ![Java](https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png) **Java**: Para a lógica da aplicação.
-- ![Java Swing](https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-ui-ux-flatart-icons-outline-flatarticons.png) **Java Swing**: Para a interface gráfica.
-- ![MongoDB](https://img.icons8.com/color/48/000000/mongodb.png) **MongoDB**: Para armazenar os dados da aplicação.
-- ![IntelliJ IDEA](https://img.icons8.com/color/48/000000/intellij-idea.png) **IntelliJ IDEA**: IDE usada no desenvolvimento.
-- ![Canva](https://img.icons8.com/color/48/000000/canva.png) **Canva**: Para esboço e construção de protótipos das telas.
+- **Java**: Para a lógica da aplicação.
+- **Java Swing**: Para a interface gráfica.
+- **MongoDB**: Para armazenar os dados da aplicação.
+- **IntelliJ IDEA**: IDE usada no desenvolvimento.
+- **Canva**: Para esboço e construção de protótipos das telas.
 
+![Java](https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png) 
+![MongoDB](https://img.icons8.com/color/48/000000/mongodb.png) 
+![IntelliJ IDEA](https://img.icons8.com/color/48/000000/intellij-idea.png) 
+![Canva](https://img.icons8.com/color/48/000000/canva.png) 
 
 ## Screenshots
 
