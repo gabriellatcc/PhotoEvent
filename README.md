@@ -81,4 +81,4 @@ Atualmente, não está preparado para ser utilizado ou testado por terceiros.
 
 ## Contato
 
-Desenvolvido por Gabriella - [LinkedIn](https://www.linkedin.com/in/gabriella-t-9b000b236/)
+Desenvolvido por Gabriella - [LinkedIn](https://www.linkedin.com/in/gabriellatccorrea/)
