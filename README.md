@@ -36,7 +36,7 @@ Este projeto foi desenvolvido em Java, utilizando bibliotecas do Java Swing para
 
 ## Screenshots
 
-Adicione aqui capturas de tela da aplicação em funcionamento. Por exemplo:
+Capturas de tela da aplicação em funcionamento:
 
 ### Tela Inicial
 ![Tela Inicial](screenshots/tela_inicial.png)
